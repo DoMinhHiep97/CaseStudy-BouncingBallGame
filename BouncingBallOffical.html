@@ -88,7 +88,11 @@
         if (circle.y + dy >= bar.y +50) {
             clearTimeout(timer);
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            alert("Game Over");
+            question=confirm("Game Over! Do you want one more game:");
+            if(question){
+                location.reload();
+            }
+            //alert("Game Over");
         }
 
        changeColor();

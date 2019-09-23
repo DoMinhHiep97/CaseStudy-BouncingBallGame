@@ -8,6 +8,7 @@ let timer;
 let barImg;
 let backgroundImg;
 let point=0;
+let question;
 
 function Bar(x, y) {
     this.x = x;
