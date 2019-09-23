@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BouncingBallGame</title>
+</head>
+<h2 id="word">Game Bouncing Ball</h2>
+<h2 id="info">Point</h2>
+<Style>
+    #canvas {
+        display: block;
+        Border: 3px solid black;
+        margin: auto;
+        Border-radius: 3px;
+    }
+
+    #info{
+        font-family: "Arial Narrow", serif;
+        text-align: center;
+    }
+
+    #word {
+        font-family: "Arial Narrow", serif;
+        text-align: center;
+    }
+
+    body {
+        background: radial-gradient(teal 40%, #6699ff, #ffcc00);
+    }
+</Style>
+<style type="text/css">
+    canvas {
+        border: #666 1px solid;
+    }
+</style>
+<title></title>
+<body onload="init();">
+<div>
+    <canvas id="canvas" width="600" height="413">
+    </canvas>
+</div>
+<img src="rectangleBar.png" id="bar" style="display:none" alt=""/>
+<img src="background.jpg" id="picture" style="display: none" alt=""/>
+<script src="changeColor.js"></script>
+<script src="someVariables.js"></script>
+<script src="drawBall.js"></script>
+<script src="setMoveBar.js"></script>
+
+<script>
+
+
+    function init() {
+        window.addEventListener("keydown", doKeyDown, false);
+        barImg = document.getElementById("bar");
+        backgroundImg = document.getElementById("picture");
+        canvas = document.getElementById("canvas");
+        ctx = canvas.getContext("2d");
+        timer = setInterval(drawEverything, 10);
+        return timer;
+    }
+
+    function drawEverything() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#FAF7F8";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#003300";
+        ctx.drawImage(backgroundImg, 0, 0);
+        ctx.drawImage(barImg, bar.x, bar.y);
+        drawBall(circle);
+
+        if (circle.x + dx > canvas.width || circle.x + dx < 0) {
+            dx = -dx;
+        }
+
+        if (circle.y + dy > bar.y && circle.x > bar.x && circle.x < bar.x + barImg.width) {
+            dy = -dy;
+            point += 20;
+            document.getElementById("info").innerHTML = point;
+        }
+
+        if (circle.y + dy > canvas.height || circle.y + dy < 0) {
+            dy = -dy;
+        }
+
+        circle.x += dx;
+        circle.y += dy;
+
+        if (circle.y + dy >= bar.y +50) {
+            clearTimeout(timer);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            alert("Game Over");
+        }
+
+       changeColor();
+    }
+</script>
+
+
+</body>
+</html>
