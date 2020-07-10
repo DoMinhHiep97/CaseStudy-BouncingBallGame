@@ -40,4 +40,8 @@ function changeColor() {
     if (nu === 10) {
         color = "pink";
     }
+
+    if(nu === 11) {
+        color = "red";
+    }
 }
