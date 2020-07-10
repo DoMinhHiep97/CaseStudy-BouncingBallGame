@@ -1,5 +1,5 @@
 function changeColor() {
-    let nu = Math.ceil(Math.random() * 10);
+    let nu = Math.ceil(Math.random() * 20);
 
     if (nu === 1) {
         color = "#ffaacc";
@@ -37,7 +37,7 @@ function changeColor() {
         color = "crimson";
     }
 
-    if (nu === 10) {
+    if (nu === 12) {
         color = "pink";
     }
 }
