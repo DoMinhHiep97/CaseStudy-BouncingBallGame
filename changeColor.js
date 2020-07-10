@@ -37,7 +37,7 @@ function changeColor() {
         color = "crimson";
     }
 
-    if (nu === 10) {
+    if (nu === 12) {
         color = "pink";
     }
 
